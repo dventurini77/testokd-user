@@ -1,0 +1,16 @@
+<div *ngIf="user">
+  <hr />
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input class="form-control" [(ngModel)]="user.Name" placeholder="username"/>
+  </div>
+  <div class="form-group">
+    <label for="mail">Email address</label>
+    <input class="form-control" [(ngModel)]="user.Email" placeholder="email address" />
+  </div>
+  <button type="button" class="btn btn-danger" (click)="onRemove()">Remove</button>
+  &nbsp;
+  <button type="submit" class="btn btn-primary" (click)="onUpdate()">Confirm</button>
+  &nbsp;
+  <button type="submit" class="btn btn-success" (click)="onAdd()">New</button>
+</div>

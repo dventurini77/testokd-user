@@ -1,0 +1,25 @@
+<div class="container">
+
+  <div *ngIf="isLoading">
+    <i class="fa fa-spinner fa-spin fa-3x"></i>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-12 col-md-offset-3">
+      <p *ngIf="users.length < 1">No users available!</p>
+      <ul class="list-group" *ngIf="users.length >= 1">
+        <li class="list-group-item" *ngFor="let user of users"
+          [class.active]="user === selectedUser"
+          (click)="onSelect(user)">
+          <span class="badge badge-secondary">{{ user.ID }}</span>&nbsp;<span>{{ user.Name }}</span>
+          <div class="d-flex justify-content-between align-items-center w-100">
+              <span class="text-gray-dark">{{ user.Email }}</span>
+            </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <app-user-detail [user]="selectedUser" (modelChange)="updateModel($event)"></app-user-detail>
+
+</div>
